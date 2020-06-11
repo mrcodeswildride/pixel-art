@@ -1,31 +1,35 @@
-var face = [11, 12, 17, 18, 21, 22, 27, 28, 44, 45, 54, 55, 61, 68, 72, 77, 83, 84, 85, 86];
+let squares = document.getElementsByClassName(`square`)
+let clearButton = document.getElementById(`clearButton`)
+let faceButton = document.getElementById(`faceButton`)
 
-var squares = document.querySelectorAll(".square");
-var drawFaceButton = document.getElementById("drawFaceButton");
-var clearGridButton = document.getElementById("clearGridButton");
+let face = [11, 12, 17, 18, 21, 22, 27, 28, 44, 45, 54, 55, 61, 68, 72, 77, 83, 84, 85, 86]
 
-for (var i = 0; i < squares.length; i++) {
-    squares[i].addEventListener("click", clickSquare);
+for (let square of squares) {
+  square.addEventListener(`click`, toggleSquare)
 }
 
-drawFaceButton.addEventListener("click", drawFace);
-clearGridButton.addEventListener("click", clearGrid);
+clearButton.addEventListener(`click`, clearGrid)
+faceButton.addEventListener(`click`, drawFace)
 
-function clickSquare() {
-    this.classList.toggle("selected");
-}
-
-function drawFace() {
-    clearGrid();
-
-    for (var i = 0; i < face.length; i++) {
-        var faceSquare = face[i];
-        squares[faceSquare].classList.add("selected");
-    }
+function toggleSquare() {
+  if (this.classList.contains(`selected`) == false) {
+    this.classList.add(`selected`)
+  }
+  else {
+    this.classList.remove(`selected`)
+  }
 }
 
 function clearGrid() {
-    for (var i = 0; i < squares.length; i++) {
-        squares[i].classList.remove("selected");
-    }
+  for (let square of squares) {
+    square.classList.remove(`selected`)
+  }
+}
+
+function drawFace() {
+  clearGrid()
+
+  for (let i of face) {
+    squares[i].classList.add(`selected`)
+  }
 }
