@@ -29,6 +29,8 @@ button {
   padding: 5px;
 }
 
-#clearButton {
+#clearButton,
+#saveButton,
+#loadButton {
   margin-right: 5px;
 }
