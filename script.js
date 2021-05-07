@@ -19,8 +19,7 @@ faceButton.addEventListener(`click`, drawFace)
 function toggleSquare() {
   if (this.classList.contains(`selected`) == false) {
     this.classList.add(`selected`)
-  }
-  else {
+  } else {
     this.classList.remove(`selected`)
   }
 }
@@ -35,7 +34,7 @@ function save() {
   saved = []
 
   for (let square of squares) {
-    if (square.classList.contains(`selected`)) {
+    if (square.classList.contains(`selected`) == true) {
       saved.push(square)
     }
   }
